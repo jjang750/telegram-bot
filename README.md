@@ -7,5 +7,8 @@
 라이브러리 설치 
 > pip install -r requirements.txt
 
+환경변수 설정
+> TELEGRAM_TOKEN=${TELEGRAM TOKEN}
+
 텔레그램 데몬 실행 [linux]
 > sh ./app/run.sh
