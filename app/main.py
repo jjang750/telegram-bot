@@ -20,14 +20,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 # 버튼 클릭 콜백 처리
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = '/start'
     # 콜백 정보 저장
     query = update.callback_query
     # 버튼 선택에 따른 기능 구현
     if query.data == 'Button1':
         message = os.popen('du / -hd 1 --exclude=volume1 --exclude=volume2 --exclude=volume3 --exclude=proc').read()
-        await context.bot.send_message(chat_id=update.effective_chat.id, text=message)
     elif query.data == 'Button2':
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="버튼 2를 선택하셨습니다.")
+        message = os.popen('free').read()
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=message)
 
 
 if __name__ == '__main__':
