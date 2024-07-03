@@ -27,7 +27,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == 'Button1':
         message = os.popen('du / -hd 1 --exclude=volume1 --exclude=volume2 --exclude=volume3 --exclude=proc').read()
     elif query.data == 'Button2':
-        message = os.popen('free').read()
+        message = os.popen('free -h').read()
     await context.bot.send_message(chat_id=update.effective_chat.id, text=message)
 
 
